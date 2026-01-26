@@ -5,7 +5,7 @@
 <title>Sonu Shukla | Photography Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- FONT AWESOME ICONS -->
+<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -16,32 +16,31 @@ body{
   color:#fff;
 }
 
-/* HERO */
+/* ===== HERO ===== */
 .hero{
   position:relative;
-  min-height:100vh;
+  min-height:70vh;
   background:
-    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
     url("hero.jpg") center/cover no-repeat;
 }
 
-/* TOP LEFT BAR */
-.top-bar{
+/* TOP BAR */
+.topbar{
   position:absolute;
   top:20px;
   left:20px;
   display:flex;
   align-items:center;
-  gap:15px;
-  z-index:10;
+  gap:16px;
 }
 
 .profile{
-  width:80px;
-  height:80px;
+  width:56px;
+  height:56px;
   border-radius:50%;
   object-fit:cover;
-  border:3px solid #333;
+  border:2px solid #444;
 }
 
 .top-social a{
@@ -50,28 +49,29 @@ body{
   margin-right:10px;
   text-decoration:none;
 }
+.top-social a:hover{opacity:.7}
 
 /* HERO TEXT */
-.hero-text{
+.hero-content{
   position:absolute;
   left:20px;
-  top:50%;
-  transform:translateY(-50%);
+  bottom:60px;
 }
 
-.hero-text h1{
-  font-size:32px;
-  margin:0 0 8px 0;
+.hero-content h1{
+  margin:0;
+  font-size:26px;
 }
 
 .tagline{
-  font-size:14px;
+  margin-top:6px;
+  font-size:13px;
   color:#bbb;
 }
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 section{
-  padding:28px 18px;
+  padding:30px 18px;
 }
 
 h2{
@@ -81,13 +81,12 @@ h2{
   margin-bottom:15px;
 }
 
-/* IMAGE GRID */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
   gap:12px;
 }
-
 .grid img{
   width:100%;
   border-radius:8px;
@@ -97,18 +96,18 @@ h2{
 .contact{
   text-align:center;
 }
-
 .contact a{
   display:inline-block;
   margin:12px;
   color:#fff;
-  font-size:20px;
   text-decoration:none;
 }
-
+.contact i{
+  font-size:22px;
+}
 .contact span{
   display:block;
-  font-size:13px;
+  font-size:12px;
   color:#aaa;
   margin-top:4px;
 }
@@ -117,16 +116,17 @@ h2{
 footer{
   text-align:center;
   padding:25px;
-  color:#777;
   font-size:13px;
+  color:#777;
 }
 
-/* MOBILE */
-@media(max-width:600px){
-  .hero-text{
-    position:static;
-    transform:none;
-    padding:140px 20px 40px;
+/* MOBILE FIX */
+@media(max-width:768px){
+  .hero{
+    min-height:60vh;
+  }
+  .hero-content h1{
+    font-size:22px;
   }
 }
 </style>
@@ -138,9 +138,8 @@ footer{
 <header class="hero">
 
   <!-- TOP LEFT -->
-  <div class="top-bar">
+  <div class="topbar">
     <img src="profile.jpg" class="profile" alt="Sonu Shukla">
-
     <div class="top-social">
       <a href="https://instagram.com/iamsonushukla" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://x.com/iamsonushukla" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -151,11 +150,11 @@ footer{
   </div>
 
   <!-- LEFT CENTER TEXT -->
-  <div class="hero-text">
+  <div class="hero-content">
     <h1>Sonu Shukla</h1>
-    <p class="tagline">
+    <div class="tagline">
       Photographer • Video & Photo Editor • Graphic Designer
-    </p>
+    </div>
   </div>
 
 </header>
@@ -201,28 +200,28 @@ footer{
 <h2>Contact</h2>
 
 <a href="https://instagram.com/iamsonushukla" target="_blank">
-  <i class="fab fa-instagram"></i>
-  <span>@iamsonushukla</span>
+<i class="fab fa-instagram"></i>
+<span>@iamsonushukla</span>
 </a>
 
 <a href="https://x.com/iamsonushukla" target="_blank">
-  <i class="fab fa-x-twitter"></i>
-  <span>@iamsonushukla</span>
+<i class="fab fa-x-twitter"></i>
+<span>@iamsonushukla</span>
 </a>
 
 <a href="https://youtube.com/@iamsonushukla" target="_blank">
-  <i class="fab fa-youtube"></i>
-  <span>@iamsonushukla</span>
+<i class="fab fa-youtube"></i>
+<span>@iamsonushukla</span>
 </a>
 
 <a href="https://facebook.com/iamsonushukla" target="_blank">
-  <i class="fab fa-facebook"></i>
-  <span>@iamsonushukla</span>
+<i class="fab fa-facebook"></i>
+<span>@iamsonushukla</span>
 </a>
 
 <a href="mailto:iamsonushukla@outlook.in">
-  <i class="fa-solid fa-envelope"></i>
-  <span>iamsonushukla@outlook.in</span>
+<i class="fa-solid fa-envelope"></i>
+<span>iamsonushukla@outlook.in</span>
 </a>
 
 </section>
