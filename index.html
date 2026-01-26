@@ -5,7 +5,6 @@
 <title>Sonu Shukla | Photography Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -16,28 +15,30 @@ body{
   color:#fff;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (16:9 FIXED) ===== */
 .hero{
   position:relative;
-  min-height:70vh;
+  width:100%;
+  aspect-ratio:16/9;
   background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.85)),
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
     url("hero.jpg") center/cover no-repeat;
 }
 
-/* TOP BAR */
+/* TOP LEFT BAR */
 .topbar{
   position:absolute;
   top:20px;
   left:20px;
   display:flex;
   align-items:center;
-  gap:16px;
+  gap:14px;
+  z-index:2;
 }
 
 .profile{
-  width:56px;
-  height:56px;
+  width:52px;
+  height:52px;
   border-radius:50%;
   object-fit:cover;
   border:2px solid #444;
@@ -46,16 +47,17 @@ body{
 .top-social a{
   color:#fff;
   font-size:18px;
-  margin-right:10px;
+  margin-right:8px;
   text-decoration:none;
 }
 .top-social a:hover{opacity:.7}
 
-/* HERO TEXT */
+/* LEFT MID TEXT */
 .hero-content{
   position:absolute;
   left:20px;
-  bottom:60px;
+  top:50%;
+  transform:translateY(-50%);
 }
 
 .hero-content h1{
@@ -120,10 +122,10 @@ footer{
   color:#777;
 }
 
-/* MOBILE FIX */
+/* MOBILE ADJUST */
 @media(max-width:768px){
   .hero{
-    min-height:60vh;
+    aspect-ratio:4/5; /* mobile pe thoda tall but NOT portrait */
   }
   .hero-content h1{
     font-size:22px;
@@ -134,7 +136,6 @@ footer{
 
 <body>
 
-<!-- HERO -->
 <header class="hero">
 
   <!-- TOP LEFT -->
@@ -149,7 +150,7 @@ footer{
     </div>
   </div>
 
-  <!-- LEFT CENTER TEXT -->
+  <!-- LEFT MID -->
   <div class="hero-content">
     <h1>Sonu Shukla</h1>
     <div class="tagline">
@@ -159,7 +160,6 @@ footer{
 
 </header>
 
-<!-- PORTRAIT -->
 <section>
 <h2>Portrait</h2>
 <div class="grid">
@@ -168,7 +168,6 @@ footer{
 </div>
 </section>
 
-<!-- STREET -->
 <section>
 <h2>Street</h2>
 <div class="grid">
@@ -177,7 +176,6 @@ footer{
 </div>
 </section>
 
-<!-- WILDLIFE -->
 <section>
 <h2>Wildlife</h2>
 <div class="grid">
@@ -186,7 +184,6 @@ footer{
 </div>
 </section>
 
-<!-- NATURE -->
 <section>
 <h2>Nature</h2>
 <div class="grid">
@@ -195,33 +192,27 @@ footer{
 </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact">
 <h2>Contact</h2>
 
 <a href="https://instagram.com/iamsonushukla" target="_blank">
-<i class="fab fa-instagram"></i>
-<span>@iamsonushukla</span>
+<i class="fab fa-instagram"></i><span>@iamsonushukla</span>
 </a>
 
 <a href="https://x.com/iamsonushukla" target="_blank">
-<i class="fab fa-x-twitter"></i>
-<span>@iamsonushukla</span>
+<i class="fab fa-x-twitter"></i><span>@iamsonushukla</span>
 </a>
 
 <a href="https://youtube.com/@iamsonushukla" target="_blank">
-<i class="fab fa-youtube"></i>
-<span>@iamsonushukla</span>
+<i class="fab fa-youtube"></i><span>@iamsonushukla</span>
 </a>
 
 <a href="https://facebook.com/iamsonushukla" target="_blank">
-<i class="fab fa-facebook"></i>
-<span>@iamsonushukla</span>
+<i class="fab fa-facebook"></i><span>@iamsonushukla</span>
 </a>
 
 <a href="mailto:iamsonushukla@outlook.in">
-<i class="fa-solid fa-envelope"></i>
-<span>iamsonushukla@outlook.in</span>
+<i class="fa-solid fa-envelope"></i><span>iamsonushukla@outlook.in</span>
 </a>
 
 </section>
