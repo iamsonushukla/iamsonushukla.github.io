@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sonu Shukla | Photography & Creative Portfolio</title>
+<title>Sonu Shukla | Photography Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- FONT & ICONS -->
+<!-- FONT AWESOME ICONS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -19,7 +19,10 @@ body{
 /* HERO SECTION */
 .hero{
   text-align:center;
-  padding:60px 20px;
+  padding:100px 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("hero.jpg") center/cover no-repeat;
 }
 
 .profile{
@@ -32,8 +35,8 @@ body{
 }
 
 h1{
-  margin:10px 0 5px;
-  font-size:26px;
+  margin:10px 0;
+  font-size:30px;
 }
 
 .tagline{
@@ -43,7 +46,7 @@ h1{
 
 /* SOCIAL ICONS */
 .social{
-  margin-top:18px;
+  margin-top:20px;
 }
 
 .social a{
@@ -51,6 +54,11 @@ h1{
   margin:0 12px;
   font-size:22px;
   text-decoration:none;
+  transition:0.3s;
+}
+
+.social a:hover{
+  opacity:0.7;
 }
 
 /* SECTIONS */
@@ -65,7 +73,7 @@ h2{
   margin-bottom:15px;
 }
 
-/* GRID */
+/* IMAGE GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
@@ -80,9 +88,9 @@ h2{
 /* FOOTER */
 footer{
   text-align:center;
-  padding:20px;
-  font-size:13px;
+  padding:25px;
   color:#777;
+  font-size:13px;
 }
 </style>
 </head>
@@ -93,17 +101,30 @@ footer{
 <header class="hero">
   <img src="profile.jpg" class="profile" alt="Sonu Shukla">
   <h1>Sonu Shukla</h1>
-  <p class="tagline">Photographer • Video & Photo Editor • Graphic Designer</p>
+  <p class="tagline">
+    Photographer • Video & Photo Editor • Graphic Designer
+  </p>
 
   <div class="social">
-    <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://youtube.com/@yourchannel" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://wa.me/91XXXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/iamsonushukla" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://threads.net/@iamsonushukla" target="_blank">
+      <i class="fab fa-threads"></i>
+    </a>
+    <a href="https://x.com/iamsonushukla" target="_blank">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+    <a href="https://youtube.com/@iamsonushukla" target="_blank">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://facebook.com/iamsonushukla" target="_blank">
+      <i class="fab fa-facebook"></i>
+    </a>
   </div>
 </header>
 
-<!-- PORTFOLIO SECTIONS -->
+<!-- PORTFOLIO -->
 <section>
 <h2>Macro Photography</h2>
 <div class="grid">
@@ -142,13 +163,6 @@ footer{
   <img src="nature1.jpg">
   <img src="nature2.jpg">
 </div>
-</section>
-
-<section>
-<h2>Editing & Graphic Design</h2>
-<p style="color:#aaa;font-size:14px;">
-Professional photo & video editing, reels, thumbnails, posters and social media creatives.
-</p>
 </section>
 
 <footer>
