@@ -68,7 +68,6 @@ body{
   color:#fff;
   text-decoration:none;
   font-size:14px;
-  letter-spacing:.5px;
 }
 .topmenu a:hover{opacity:.7}
 
@@ -112,21 +111,43 @@ h2{
 .grid img{
   width:100%;
   border-radius:8px;
+  cursor:pointer;
+}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:999;
+}
+.lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:6px;
+}
+.lightbox:target{
+  opacity:1;
+  pointer-events:auto;
 }
 
 /* CONTACT */
-.contact{
-  text-align:center;
-}
+.contact{text-align:center;}
 .contact a{
   display:inline-block;
   margin:12px;
   color:#fff;
   text-decoration:none;
 }
-.contact i{
-  font-size:22px;
-}
+.contact i{font-size:22px;}
 .contact span{
   display:block;
   font-size:12px;
@@ -157,12 +178,11 @@ footer{
 
   <!-- TOP LEFT -->
   <div class="topbar">
-    <img src="profile.jpg" class="profile" alt="Sonu Shukla">
+    <img src="profile.jpg" class="profile">
     <div class="top-social">
-      <a href="https://instagram.com/iamsonushukla" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://x.com/iamsonushukla" target="_blank"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://youtube.com/@iamsonushukla" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://facebook.com/iamsonushukla" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i></a>
       <a href="mailto:iamsonushukla@outlook.in"><i class="fa-solid fa-envelope"></i></a>
     </div>
   </div>
@@ -178,9 +198,7 @@ footer{
   <!-- HERO TEXT -->
   <div class="hero-content">
     <h1>Sonu Shukla</h1>
-    <div class="tagline">
-      Photographer • Video & Photo Editor • Graphic Designer
-    </div>
+    <div class="tagline">Photographer • Editor • Designer</div>
   </div>
 
 </header>
@@ -188,78 +206,64 @@ footer{
 <section id="portrait">
 <h2>Portrait</h2>
 <div class="grid">
-  <img src="portrait1.jpg">
-  <img src="portrait2.jpg">
+  <a href="#img1"><img src="portrait1.jpg"></a>
+  <a href="#img2"><img src="portrait2.jpg"></a>
 </div>
 </section>
 
 <section id="street">
 <h2>Street</h2>
 <div class="grid">
-  <img src="street1.jpg">
-  <img src="street2.jpg">
+  <a href="#img3"><img src="street1.jpg"></a>
+  <a href="#img4"><img src="street2.jpg"></a>
 </div>
 </section>
 
 <section id="wildlife">
 <h2>Wildlife</h2>
 <div class="grid">
-  <img src="wildlife1.jpg">
-  <img src="wildlife2.jpg">
+  <a href="#img5"><img src="wildlife1.jpg"></a>
+  <a href="#img6"><img src="wildlife2.jpg"></a>
 </div>
 </section>
 
 <section id="nature">
 <h2>Nature</h2>
 <div class="grid">
-  <img src="nature1.jpg">
-  <img src="nature2.jpg">
+  <a href="#img7"><img src="nature1.jpg"></a>
+  <a href="#img8"><img src="nature2.jpg"></a>
 </div>
 </section>
 
 <section class="contact">
 <h2>Contact</h2>
-
-<a href="https://instagram.com/iamsonushukla" target="_blank">
-<i class="fab fa-instagram"></i><span>@iamsonushukla</span>
-</a>
-
-<a href="https://x.com/iamsonushukla" target="_blank">
-<i class="fab fa-x-twitter"></i><span>@iamsonushukla</span>
-</a>
-
-<a href="https://youtube.com/@iamsonushukla" target="_blank">
-<i class="fab fa-youtube"></i><span>@iamsonushukla</span>
-</a>
-
-<a href="https://facebook.com/iamsonushukla" target="_blank">
-<i class="fab fa-facebook"></i><span>@iamsonushukla</span>
-</a>
-
-<a href="mailto:iamsonushukla@outlook.in">
-<i class="fa-solid fa-envelope"></i><span>iamsonushukla@outlook.in</span>
-</a>
-
+<a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i><span>@iamsonushukla</span></a>
+<a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i><span>@iamsonushukla</span></a>
+<a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i><span>@iamsonushukla</span></a>
 </section>
 
-<!-- ABOUT LAST -->
-<section id="about" style="padding:40px 20px 60px;text-align:center;">
-  <h2>About Me</h2>
-
-  <img src="about.jpg" alt="Sonu Shukla"
-       style="width:120px;height:120px;border-radius:50%;
-              object-fit:cover;margin:20px auto;border:2px solid #444;">
-
-  <p style="max-width:700px;margin:auto;line-height:1.8;color:#ccc;">
-    Hi, I’m <strong>Sonu Shukla</strong>, a passionate photographer and photo editor.
-    I love capturing portraits, street moments, nature, and wildlife through my lens.
-    Photography for me is not just a hobby, it’s a way to tell stories and freeze emotions.
-  </p>
+<section id="about" style="text-align:center;">
+<h2>About Me</h2>
+<img src="about.jpg" style="width:120px;height:120px;border-radius:50%;border:2px solid #444;">
+<p style="max-width:700px;margin:auto;line-height:1.8;color:#ccc;">
+Hi, I’m <strong>Sonu Shukla</strong>, a passionate photographer and photo editor.
+I love capturing stories and emotions through my lens.
+</p>
 </section>
 
 <footer>
 © 2026 Sonu Shukla • sonushukla.in
 </footer>
+
+<!-- LIGHTBOX POPUPS -->
+<div id="img1" class="lightbox"><a href="#"><img src="portrait1.jpg"></a></div>
+<div id="img2" class="lightbox"><a href="#"><img src="portrait2.jpg"></a></div>
+<div id="img3" class="lightbox"><a href="#"><img src="street1.jpg"></a></div>
+<div id="img4" class="lightbox"><a href="#"><img src="street2.jpg"></a></div>
+<div id="img5" class="lightbox"><a href="#"><img src="wildlife1.jpg"></a></div>
+<div id="img6" class="lightbox"><a href="#"><img src="wildlife2.jpg"></a></div>
+<div id="img7" class="lightbox"><a href="#"><img src="nature1.jpg"></a></div>
+<div id="img8" class="lightbox"><a href="#"><img src="nature2.jpg"></a></div>
 
 </body>
 </html>
