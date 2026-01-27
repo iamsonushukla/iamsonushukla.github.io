@@ -15,7 +15,7 @@ body{
   color:#fff;
 }
 
-/* ===== HERO (16:9 FIXED) ===== */
+/* ===== HERO ===== */
 .hero{
   position:relative;
   width:100%;
@@ -122,7 +122,7 @@ footer{
   color:#777;
 }
 
-/* MOBILE ADJUST */
+/* MOBILE */
 @media(max-width:768px){
   .hero{
     aspect-ratio:4/5;
@@ -140,7 +140,7 @@ footer{
 
   <!-- TOP LEFT -->
   <div class="topbar">
-    <img src="profile.jpg" class="profile" alt="Sonu Shukla">
+    <img src="profile.jpg" class="profile" alt="Sonu Shukla" loading="lazy" decoding="async">
     <div class="top-social">
       <a href="https://instagram.com/iamsonushukla" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://x.com/iamsonushukla" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -160,51 +160,52 @@ footer{
 
 </header>
 
+<!-- ABOUT -->
+<section id="about" style="padding:60px 20px; text-align:center;">
+  <h2>About Me</h2>
+
+  <img src="about.jpg" alt="Sonu Shukla"
+       style="width:120px;height:120px;border-radius:50%;
+              object-fit:cover;margin:20px auto;border:2px solid #444;"
+       loading="lazy" decoding="async">
+
+  <p style="max-width:700px;margin:auto;line-height:1.8;color:#ccc;">
+    Hi, I’m <strong>Sonu Shukla</strong>, a passionate photographer and photo editor.
+    I love capturing portraits, street moments, nature, and wildlife through my lens.
+    Photography for me is not just a hobby, it’s a way to tell stories and freeze emotions.
+  </p>
+</section>
+
 <section>
 <h2>Portrait</h2>
 <div class="grid">
-  <img src="portrait1.jpg">
-  <img src="portrait2.jpg">
+  <img src="portrait1.jpg" loading="lazy" decoding="async">
+  <img src="portrait2.jpg" loading="lazy" decoding="async">
 </div>
 </section>
 
 <section>
 <h2>Street</h2>
 <div class="grid">
-  <img src="street1.jpg">
-  <img src="street2.jpg">
+  <img src="street1.jpg" loading="lazy" decoding="async">
+  <img src="street2.jpg" loading="lazy" decoding="async">
 </div>
 </section>
 
 <section>
 <h2>Wildlife</h2>
 <div class="grid">
-  <img src="wildlife1.jpg">
-  <img src="wildlife2.jpg">
+  <img src="wildlife1.jpg" loading="lazy" decoding="async">
+  <img src="wildlife2.jpg" loading="lazy" decoding="async">
 </div>
 </section>
 
 <section>
 <h2>Nature</h2>
 <div class="grid">
-  <img src="nature1.jpg">
-  <img src="nature2.jpg">
+  <img src="nature1.jpg" loading="lazy" decoding="async">
+  <img src="nature2.jpg" loading="lazy" decoding="async">
 </div>
-</section>
-
-<!-- ✅ ABOUT SECTION (ONLY ADDITION) -->
-<section id="about" style="padding: 60px 20px; text-align: center;">
-  <h2>About Me</h2>
-
-  <img src="about.jpg" alt="Sonu Shukla"
-       style="width:120px;height:120px;border-radius:50%;
-              object-fit:cover;margin:20px auto;border:2px solid #444;">
-
-  <p style="max-width: 700px; margin: auto; line-height: 1.8; color:#ccc;">
-    Hi, I’m <strong>Sonu Shukla</strong>, a passionate photographer and photo editor.
-    I love capturing portraits, street moments, nature, and wildlife through my lens.
-    Photography for me is not just a hobby, it’s a way to tell stories and freeze emotions.
-  </p>
 </section>
 
 <section class="contact">
