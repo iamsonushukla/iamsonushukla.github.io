@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+html{scroll-behavior:smooth;}
+
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
@@ -25,7 +27,7 @@ body{
     url("hero.jpg") center/cover no-repeat;
 }
 
-/* TOP LEFT BAR */
+/* TOP LEFT */
 .topbar{
   position:absolute;
   top:20px;
@@ -33,7 +35,7 @@ body{
   display:flex;
   align-items:center;
   gap:14px;
-  z-index:2;
+  z-index:5;
 }
 
 .profile{
@@ -52,7 +54,27 @@ body{
 }
 .top-social a:hover{opacity:.7}
 
-/* LEFT MID TEXT */
+/* TOP RIGHT MENU */
+.topmenu{
+  position:absolute;
+  top:28px;
+  right:30px;
+  display:flex;
+  gap:22px;
+  z-index:5;
+}
+
+.topmenu a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  letter-spacing:.5px;
+}
+.topmenu a:hover{
+  opacity:.7;
+}
+
+/* HERO TEXT */
 .hero-content{
   position:absolute;
   left:20px;
@@ -62,7 +84,7 @@ body{
 
 .hero-content h1{
   margin:0;
-  font-size:26px;
+  font-size:28px;
 }
 
 .tagline{
@@ -73,25 +95,33 @@ body{
 
 /* ===== SECTIONS ===== */
 section{
-  padding:30px 18px;
+  padding:60px 18px;
 }
 
 h2{
   font-size:18px;
   border-bottom:1px solid #333;
   padding-bottom:6px;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
-  gap:12px;
+  grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+  gap:14px;
 }
 .grid img{
   width:100%;
   border-radius:8px;
+}
+
+/* ABOUT */
+#about p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.8;
+  color:#ccc;
 }
 
 /* CONTACT */
@@ -124,12 +154,9 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero{
-    aspect-ratio:4/5;
-  }
-  .hero-content h1{
-    font-size:22px;
-  }
+  .hero{aspect-ratio:4/5;}
+  .topmenu{display:none;}
+  .hero-content h1{font-size:22px;}
 }
 </style>
 </head>
@@ -140,7 +167,7 @@ footer{
 
   <!-- TOP LEFT -->
   <div class="topbar">
-    <img src="profile.jpg" class="profile" alt="Sonu Shukla" loading="lazy" decoding="async">
+    <img src="profile.jpg" class="profile" alt="Sonu Shukla">
     <div class="top-social">
       <a href="https://instagram.com/iamsonushukla" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://x.com/iamsonushukla" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -150,7 +177,15 @@ footer{
     </div>
   </div>
 
-  <!-- LEFT MID -->
+  <!-- TOP RIGHT MENU -->
+  <div class="topmenu">
+    <a href="#portrait">Portrait</a>
+    <a href="#street">Street</a>
+    <a href="#wildlife">Wildlife</a>
+    <a href="#nature">Nature</a>
+  </div>
+
+  <!-- HERO TEXT -->
   <div class="hero-content">
     <h1>Sonu Shukla</h1>
     <div class="tagline">
@@ -161,50 +196,49 @@ footer{
 </header>
 
 <!-- ABOUT -->
-<section id="about" style="padding:60px 20px; text-align:center;">
+<section id="about" style="text-align:center;">
   <h2>About Me</h2>
 
   <img src="about.jpg" alt="Sonu Shukla"
        style="width:120px;height:120px;border-radius:50%;
-              object-fit:cover;margin:20px auto;border:2px solid #444;"
-       loading="lazy" decoding="async">
+              object-fit:cover;margin:20px auto;border:2px solid #444;">
 
-  <p style="max-width:700px;margin:auto;line-height:1.8;color:#ccc;">
+  <p>
     Hi, I’m <strong>Sonu Shukla</strong>, a passionate photographer and photo editor.
     I love capturing portraits, street moments, nature, and wildlife through my lens.
     Photography for me is not just a hobby, it’s a way to tell stories and freeze emotions.
   </p>
 </section>
 
-<section>
+<section id="portrait">
 <h2>Portrait</h2>
 <div class="grid">
-  <img src="portrait1.jpg" loading="lazy" decoding="async">
-  <img src="portrait2.jpg" loading="lazy" decoding="async">
+  <img src="portrait1.jpg">
+  <img src="portrait2.jpg">
 </div>
 </section>
 
-<section>
+<section id="street">
 <h2>Street</h2>
 <div class="grid">
-  <img src="street1.jpg" loading="lazy" decoding="async">
-  <img src="street2.jpg" loading="lazy" decoding="async">
+  <img src="street1.jpg">
+  <img src="street2.jpg">
 </div>
 </section>
 
-<section>
+<section id="wildlife">
 <h2>Wildlife</h2>
 <div class="grid">
-  <img src="wildlife1.jpg" loading="lazy" decoding="async">
-  <img src="wildlife2.jpg" loading="lazy" decoding="async">
+  <img src="wildlife1.jpg">
+  <img src="wildlife2.jpg">
 </div>
 </section>
 
-<section>
+<section id="nature">
 <h2>Nature</h2>
 <div class="grid">
-  <img src="nature1.jpg" loading="lazy" decoding="async">
-  <img src="nature2.jpg" loading="lazy" decoding="async">
+  <img src="nature1.jpg">
+  <img src="nature2.jpg">
 </div>
 </section>
 
