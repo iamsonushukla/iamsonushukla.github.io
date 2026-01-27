@@ -35,7 +35,7 @@ body{
   display:flex;
   align-items:center;
   gap:14px;
-  z-index:5;
+  z-index:10;
 }
 
 .profile{
@@ -61,7 +61,7 @@ body{
   right:30px;
   display:flex;
   gap:22px;
-  z-index:5;
+  z-index:10;
 }
 
 .topmenu a{
@@ -83,11 +83,10 @@ body{
   margin:0;
   font-size:28px;
 }
-
 .tagline{
-  margin-top:6px;
   font-size:13px;
   color:#bbb;
+  margin-top:6px;
 }
 
 /* ===== SECTIONS ===== */
@@ -108,10 +107,15 @@ h2{
   grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
   gap:14px;
 }
+
 .grid img{
   width:100%;
   border-radius:8px;
   cursor:pointer;
+  transition:transform .3s;
+}
+.grid img:hover{
+  transform:scale(1.05);
 }
 
 /* LIGHTBOX */
@@ -121,22 +125,29 @@ h2{
   width:100%;
   height:100%;
   background:rgba(0,0,0,.9);
-  display:flex;
+  display:none;
   align-items:center;
   justify-content:center;
-  opacity:0;
-  pointer-events:none;
-  transition:.3s;
   z-index:999;
 }
+
 .lightbox img{
   max-width:90%;
   max-height:90%;
   border-radius:6px;
 }
-.lightbox:target{
-  opacity:1;
-  pointer-events:auto;
+
+.lightbox.active{
+  display:flex;
+}
+
+.lightbox .close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
 }
 
 /* CONTACT */
@@ -176,18 +187,17 @@ footer{
 
 <header class="hero">
 
-  <!-- TOP LEFT -->
   <div class="topbar">
     <img src="profile.jpg" class="profile">
     <div class="top-social">
       <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i></a>
       <a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i></a>
       <a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i></a>
+      <a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i></a>
       <a href="mailto:iamsonushukla@outlook.in"><i class="fa-solid fa-envelope"></i></a>
     </div>
   </div>
 
-  <!-- TOP RIGHT MENU -->
   <div class="topmenu">
     <a href="#portrait">Portrait</a>
     <a href="#street">Street</a>
@@ -195,7 +205,6 @@ footer{
     <a href="#nature">Nature</a>
   </div>
 
-  <!-- HERO TEXT -->
   <div class="hero-content">
     <h1>Sonu Shukla</h1>
     <div class="tagline">Photographer • Editor • Designer</div>
@@ -206,32 +215,32 @@ footer{
 <section id="portrait">
 <h2>Portrait</h2>
 <div class="grid">
-  <a href="#img1"><img src="portrait1.jpg"></a>
-  <a href="#img2"><img src="portrait2.jpg"></a>
+  <img src="portrait1.jpg" onclick="openLightbox(this)">
+  <img src="portrait2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section id="street">
 <h2>Street</h2>
 <div class="grid">
-  <a href="#img3"><img src="street1.jpg"></a>
-  <a href="#img4"><img src="street2.jpg"></a>
+  <img src="street1.jpg" onclick="openLightbox(this)">
+  <img src="street2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section id="wildlife">
 <h2>Wildlife</h2>
 <div class="grid">
-  <a href="#img5"><img src="wildlife1.jpg"></a>
-  <a href="#img6"><img src="wildlife2.jpg"></a>
+  <img src="wildlife1.jpg" onclick="openLightbox(this)">
+  <img src="wildlife2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section id="nature">
 <h2>Nature</h2>
 <div class="grid">
-  <a href="#img7"><img src="nature1.jpg"></a>
-  <a href="#img8"><img src="nature2.jpg"></a>
+  <img src="nature1.jpg" onclick="openLightbox(this)">
+  <img src="nature2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
@@ -240,6 +249,7 @@ footer{
 <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i><span>@iamsonushukla</span></a>
 <a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i><span>@iamsonushukla</span></a>
 <a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i><span>@iamsonushukla</span></a>
+<a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i><span>@iamsonushukla</span></a>
 </section>
 
 <section id="about" style="text-align:center;">
@@ -255,15 +265,27 @@ I love capturing stories and emotions through my lens.
 © 2026 Sonu Shukla • sonushukla.in
 </footer>
 
-<!-- LIGHTBOX POPUPS -->
-<div id="img1" class="lightbox"><a href="#"><img src="portrait1.jpg"></a></div>
-<div id="img2" class="lightbox"><a href="#"><img src="portrait2.jpg"></a></div>
-<div id="img3" class="lightbox"><a href="#"><img src="street1.jpg"></a></div>
-<div id="img4" class="lightbox"><a href="#"><img src="street2.jpg"></a></div>
-<div id="img5" class="lightbox"><a href="#"><img src="wildlife1.jpg"></a></div>
-<div id="img6" class="lightbox"><a href="#"><img src="wildlife2.jpg"></a></div>
-<div id="img7" class="lightbox"><a href="#"><img src="nature1.jpg"></a></div>
-<div id="img8" class="lightbox"><a href="#"><img src="nature2.jpg"></a></div>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">×</span>
+  <img id="lightboxImg">
+</div>
+
+<script>
+function openLightbox(img){
+  document.getElementById("lightboxImg").src = img.src;
+  document.getElementById("lightbox").classList.add("active");
+}
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("active");
+}
+document.getElementById("lightbox").addEventListener("click", function(e){
+  if(e.target === this) closeLightbox();
+});
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape") closeLightbox();
+});
+</script>
 
 </body>
 </html>
