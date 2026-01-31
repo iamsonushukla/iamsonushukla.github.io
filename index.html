@@ -8,90 +8,125 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+*{box-sizing:border-box;}
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
   background:#0e0e0e;
   color:#fff;
+  overflow-x:hidden;
 }
 
-.hero{
-  position:relative;
-  width:100%;
-  height:80vh;
-  background:
-    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
-    url("hero.jpg") center top / cover no-repeat;
-}
-
-/* TOP LEFT */
+/* ===== TOP STRIP ===== */
 .topbar{
-  position:absolute;
-  top:20px;
-  left:20px;
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  padding:15px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index:1000;
+  background:linear-gradient(to bottom, rgba(0,0,0,.6), transparent);
+}
+
+.left-top{
   display:flex;
   align-items:center;
   gap:12px;
 }
 
+.menu-btn{
+  font-size:22px;
+  cursor:pointer;
+}
+
 .profile{
-  width:48px;
-  height:48px;
+  width:42px;
+  height:42px;
   border-radius:50%;
   border:2px solid #444;
+  object-fit:cover;
+  cursor:pointer;
 }
 
 .top-social a{
   color:#fff;
-  margin-right:8px;
-  font-size:18px;
+  margin-left:10px;
+  font-size:16px;
   text-decoration:none;
 }
 
-/* HERO TEXT */
-.hero-text{
-  position:absolute;
-  left:20px;
-  top:50%;
-  transform:translateY(-50%);
+/* ===== HERO ===== */
+.hero{
+  width:100%;
+  aspect-ratio:16/9;
+  background:
+    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.8)),
+    url("hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  padding:80px 20px;
 }
-.hero-text h1{margin:0;font-size:30px;}
-.hero-text p{color:#bbb;font-size:14px;margin-top:6px;}
 
-/* SECTIONS */
+.hero-content h1{
+  margin:0;
+  font-size:30px;
+}
+.tagline{
+  color:#bbb;
+  font-size:14px;
+}
+
+/* ===== SLIDE MENU ===== */
+.sidemenu{
+  position:fixed;
+  top:0; left:-260px;
+  width:260px;
+  height:100%;
+  background:#111;
+  padding:80px 20px;
+  transition:.3s;
+  z-index:1200;
+}
+.sidemenu.active{left:0;}
+.sidemenu a{
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  margin:15px 0;
+  font-size:16px;
+}
+
+/* ===== SECTIONS ===== */
 section{
-  padding:60px 18px;
+  padding:50px 20px;
 }
 h2{
-  font-size:18px;
   border-bottom:1px solid #333;
   padding-bottom:6px;
 }
 
-/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
 }
 .grid img{
   width:100%;
   border-radius:8px;
   cursor:pointer;
-  transition:.3s;
 }
-.grid img:hover{transform:scale(1.05);}
 
-/* LIGHTBOX */
+/* ===== LIGHTBOX ===== */
 .lightbox{
   position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
+  inset:0;
   background:rgba(0,0,0,.9);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:999;
+  z-index:2000;
 }
 .lightbox.active{display:flex;}
 .lightbox img{
@@ -100,12 +135,23 @@ h2{
 }
 .lightbox span{
   position:absolute;
-  top:20px;right:25px;
-  font-size:28px;
+  top:20px;
+  right:25px;
+  font-size:30px;
   cursor:pointer;
 }
 
-/* CONTACT */
+/* ===== ABOUT ===== */
+#about{text-align:center;}
+#about img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:2px solid #444;
+  object-fit:cover;
+}
+
+/* ===== CONTACT ===== */
 .contact{text-align:center;}
 .contact a{
   display:inline-block;
@@ -113,110 +159,150 @@ h2{
   color:#fff;
   text-decoration:none;
 }
-.contact i{font-size:22px;}
 .contact span{
   display:block;
   font-size:12px;
   color:#aaa;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
   padding:25px;
-  font-size:13px;
   color:#777;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero{height:60vh;}
-  .hero-text h1{font-size:22px;}
+  .hero{aspect-ratio:4/5;}
 }
 </style>
 </head>
 
 <body>
 
-<header class="hero">
+<!-- SIDE MENU -->
+<div class="sidemenu" id="menu">
+  <a href="#" onclick="goHome()">Home</a>
+  <a href="#" onclick="openCategory('portrait')">Portrait</a>
+  <a href="#" onclick="openCategory('street')">Street</a>
+  <a href="#" onclick="openCategory('wildlife')">Wildlife</a>
+  <a href="#" onclick="openCategory('nature')">Nature</a>
+</div>
 
-  <div class="topbar">
-    <img src="profile.jpg" class="profile">
-    <div class="top-social">
-      <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i></a>
-      <a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i></a>
-      <a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i></a>
-    </div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="left-top">
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <img src="profile.jpg" class="profile" onclick="goHome()">
   </div>
+  <div class="top-social">
+    <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i></a>
+    <a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i></a>
+    <a href="mailto:contact@sonushukla.in"><i class="fa-solid fa-envelope"></i></a>
+  </div>
+</div>
 
-  <div class="hero-text">
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-content">
     <h1>Sonu Shukla</h1>
-    <p>Photographer • Editor • Graphic Designer</p>
+    <div class="tagline">Photographer • Editor • Graphic Designer</div>
   </div>
+</div>
 
-</header>
+<!-- HOME GALLERIES -->
+<div id="content">
 
 <section>
 <h2>Portrait</h2>
 <div class="grid">
-  <img src="portrait1.jpg" onclick="openLightbox(this)">
-  <img src="portrait2.jpg" onclick="openLightbox(this)">
+<img src="portrait1.jpg" onclick="openLightbox(this)">
+<img src="portrait2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section>
 <h2>Street</h2>
 <div class="grid">
-  <img src="street1.jpg" onclick="openLightbox(this)">
-  <img src="street2.jpg" onclick="openLightbox(this)">
+<img src="street1.jpg" onclick="openLightbox(this)">
+<img src="street2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section>
 <h2>Wildlife</h2>
 <div class="grid">
-  <img src="wildlife1.jpg" onclick="openLightbox(this)">
-  <img src="wildlife2.jpg" onclick="openLightbox(this)">
+<img src="wildlife1.jpg" onclick="openLightbox(this)">
+<img src="wildlife2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section>
 <h2>Nature</h2>
 <div class="grid">
-  <img src="nature1.jpg" onclick="openLightbox(this)">
-  <img src="nature2.jpg" onclick="openLightbox(this)">
+<img src="nature1.jpg" onclick="openLightbox(this)">
+<img src="nature2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
+</div>
+
+<!-- ABOUT (LAST) -->
+<section id="about">
+<h2>About Me</h2>
+<img src="about.jpg">
+<p style="max-width:700px;margin:auto;line-height:1.8;color:#ccc;">
+I don’t just capture photographs — I preserve moments, emotions, and stories that deserve to live forever.
+</p>
+</section>
+
+<!-- CONTACT -->
 <section class="contact">
 <h2>Contact</h2>
 <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i><span>@iamsonushukla</span></a>
-<a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i><span>@iamsonushukla</span></a>
-<a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i><span>@iamsonushukla</span></a>
-<a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i><span>@iamsonushukla</span></a>
+<a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i><span>Facebook</span></a>
 </section>
 
-<footer>
-© 2026 Sonu Shukla • sonushukla.in
-</footer>
+<footer>© 2026 Sonu Shukla • sonushukla.in</footer>
 
+<!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-  <span onclick="closeLightbox()">×</span>
-  <img id="lightboxImg">
+<span onclick="closeLightbox()">×</span>
+<img id="lbimg">
 </div>
 
 <script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+
 function openLightbox(img){
-  document.getElementById("lightboxImg").src=img.src;
+  document.getElementById("lbimg").src = img.src;
   document.getElementById("lightbox").classList.add("active");
 }
+
 function closeLightbox(){
   document.getElementById("lightbox").classList.remove("active");
 }
+
+document.getElementById("lightbox").onclick = e=>{
+  if(e.target.id==="lightbox") closeLightbox();
+}
+
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape") closeLightbox();
 });
+
+function goHome(){
+  location.reload();
+}
+
+function openCategory(cat){
+  alert("Next step: category-wise full gallery (ready to extend)");
+}
 </script>
 
 </body>
