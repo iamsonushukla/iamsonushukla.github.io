@@ -5,8 +5,7 @@
 <title>Sonu Shukla | Photography Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{box-sizing:border-box;}
@@ -19,50 +18,40 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HERO (FINAL FIXED) ================= */
+/* ================= HERO ================= */
 .hero{
   position:relative;
   width:100%;
-
-  /* 🔥 HERO FIX */
-  aspect-ratio:16/9;
-  min-height:420px;
-  max-height:85vh;
-
-  background-image:
-    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.65)),
-    url("hero.jpg");
-
+  height:100vh;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.55), rgba(0,0,0,.75)),
+    url("hero.jpg") no-repeat;
   background-size:cover;
-  background-repeat:no-repeat;
-  background-position:center top;
-
-  overflow:hidden;
+  background-position:50% 20%;
 }
 
 /* HERO TEXT */
 .hero-text{
   position:absolute;
   left:20px;
-  bottom:22%;
-  z-index:5;
+  bottom:12%;
 }
 .hero-text h1{
   margin:0;
-  font-size:30px;
+  font-size:32px;
 }
 .hero-text p{
   margin-top:6px;
   font-size:14px;
-  color:#bbb;
+  color:#ccc;
 }
 
 /* ================= TOP LEFT STACK ================= */
 .topbar{
   position:absolute;
-  top:20px;
-  left:20px;
-  z-index:50;
+  top:18px;
+  left:18px;
+  z-index:100;
 }
 .stack{
   display:flex;
@@ -70,13 +59,13 @@ body{
   gap:14px;
 }
 
-/* HAMBURGER */
+/* MENU */
 .menu-btn{
   font-size:24px;
   cursor:pointer;
 }
 
-/* MINI ICONS */
+/* ICONS */
 .mini-icons{
   display:flex;
   flex-direction:column;
@@ -85,21 +74,18 @@ body{
 .mini-icons a{
   color:#fff;
   font-size:18px;
-  text-decoration:none;
 }
-.mini-icons a:hover{opacity:.7}
 
-/* ================= MENU OVERLAY ================= */
+/* ================= MENU ================= */
 .menu-overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.5);
   display:none;
-  z-index:60;
+  z-index:200;
 }
 .menu-overlay.active{display:block;}
 
-/* ================= SLIDE MENU ================= */
 .menu{
   position:fixed;
   top:0;
@@ -109,28 +95,35 @@ body{
   background:#111;
   padding:80px 20px;
   transition:.3s;
-  z-index:70;
+  z-index:300;
 }
 .menu.active{left:0;}
 .menu a{
   display:block;
+  margin:14px 0;
   color:#fff;
   text-decoration:none;
-  margin:15px 0;
-  font-size:16px;
 }
 
 /* ================= SECTIONS ================= */
-section{padding:40px 18px;}
+section{
+  padding:28px 18px;
+}
+section:first-of-type{
+  padding-top:18px;
+}
 h2{
   font-size:18px;
+  margin-bottom:12px;
   border-bottom:1px solid #333;
   padding-bottom:6px;
 }
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:14px;
+  gap:12px;
 }
 .grid img{
   width:100%;
@@ -142,11 +135,11 @@ h2{
 .lightbox{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.9);
+  background:rgba(0,0,0,.92);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2000;
+  z-index:3000;
 }
 .lightbox.active{display:flex;}
 .lightbox img{
@@ -157,7 +150,7 @@ h2{
   position:absolute;
   top:20px;
   right:25px;
-  font-size:28px;
+  font-size:30px;
   cursor:pointer;
 }
 
@@ -165,16 +158,17 @@ h2{
 .payment{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85);
+  background:rgba(0,0,0,.9);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2100;
+  z-index:4000;
 }
 .payment.active{display:flex;}
+
 .paybox{
   background:#111;
-  padding:25px;
+  padding:24px;
   border-radius:10px;
   max-width:320px;
   width:90%;
@@ -182,17 +176,16 @@ h2{
 }
 .paybox img{
   width:180px;
-  border-radius:8px;
-  margin:15px 0;
+  margin:14px 0;
 }
 .paybox a{
   display:block;
-  margin:10px 0;
   padding:10px;
   background:#1e1e1e;
   color:#fff;
   text-decoration:none;
   border-radius:6px;
+  margin:10px 0;
 }
 .paybox p{
   font-size:12px;
@@ -200,7 +193,9 @@ h2{
 }
 
 /* ================= ABOUT ================= */
-#about{text-align:center;}
+#about{
+  text-align:center;
+}
 #about img{
   width:120px;
   height:120px;
@@ -209,21 +204,18 @@ h2{
   object-fit:cover;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
+  padding:20px;
   text-align:center;
-  padding:25px;
   font-size:13px;
   color:#777;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero{
-    aspect-ratio:4/5;
-    max-height:70vh;
-  }
-  .hero-text h1{font-size:22px;}
+  .hero{height:85vh;}
+  .hero-text h1{font-size:24px;}
 }
 </style>
 </head>
@@ -245,10 +237,9 @@ footer{
   <div class="topbar">
     <div class="stack">
       <div class="menu-btn" onclick="openMenu()">☰</div>
-
       <div class="mini-icons">
         <a href="mailto:contact@sonushukla.in"><i class="fa-solid fa-envelope"></i></a>
-        <a href="javascript:void(0)" onclick="openPayment()"><i class="fa-solid fa-indian-rupee-sign"></i></a>
+        <a onclick="openPayment()"><i class="fa-solid fa-indian-rupee-sign"></i></a>
         <a href="https://instagram.com/iamsonushukla" target="_blank"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
@@ -258,19 +249,97 @@ footer{
     <h1>Sonu Shukla</h1>
     <p>Photographer • Editor • Graphic Designer</p>
   </div>
-
 </header>
 
-<!-- rest of your code unchanged -->
+<section id="portrait">
+<h2>Portrait</h2>
+<div class="grid">
+  <img src="portrait1.jpg" onclick="openLightbox(this)">
+  <img src="portrait2.jpg" onclick="openLightbox(this)">
+</div>
+</section>
+
+<section id="street">
+<h2>Street</h2>
+<div class="grid">
+  <img src="street1.jpg" onclick="openLightbox(this)">
+  <img src="street2.jpg" onclick="openLightbox(this)">
+</div>
+</section>
+
+<section id="wildlife">
+<h2>Wildlife</h2>
+<div class="grid">
+  <img src="wildlife1.jpg" onclick="openLightbox(this)">
+  <img src="wildlife2.jpg" onclick="openLightbox(this)">
+</div>
+</section>
+
+<section id="nature">
+<h2>Nature</h2>
+<div class="grid">
+  <img src="nature1.jpg" onclick="openLightbox(this)">
+  <img src="nature2.jpg" onclick="openLightbox(this)">
+</div>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<img src="about.jpg">
+<p style="max-width:700px;margin:auto;line-height:1.7;color:#ccc;">
+I don’t just capture photographs — I preserve moments, emotions, and stories that deserve to live forever.
+</p>
+</section>
+
+<footer>
+© 2026 Sonu Shukla • sonushukla.in
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <span onclick="closeLightbox()">×</span>
+  <img id="lbimg">
+</div>
+
+<div class="payment" id="payment">
+  <div class="paybox">
+    <h3>Make a Payment</h3>
+    <img src="upi-qr.png">
+    <p><b>UPI ID:</b> iamsonushukla@upi</p>
+    <a href="upi://pay?pa=iamsonushukla@upi&pn=Mahesh%20Prasad%20Shukla&cu=INR">Pay via UPI App</a>
+    <p>Please verify banking name<br><b>Mahesh Prasad Shukla</b></p>
+  </div>
+</div>
+
 <script>
 function openMenu(){
-  menu.classList.add("active");
-  menuOverlay.classList.add("active");
+  document.getElementById("menu").classList.add("active");
+  document.getElementById("menuOverlay").classList.add("active");
 }
 function closeMenu(){
-  menu.classList.remove("active");
-  menuOverlay.classList.remove("active");
+  document.getElementById("menu").classList.remove("active");
+  document.getElementById("menuOverlay").classList.remove("active");
 }
+
+function openLightbox(img){
+  document.getElementById("lbimg").src = img.src;
+  document.getElementById("lightbox").classList.add("active");
+}
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("active");
+}
+
+function openPayment(){
+  closeMenu();
+  document.getElementById("payment").classList.add("active");
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){
+    closeMenu();
+    closeLightbox();
+    document.getElementById("payment").classList.remove("active");
+  }
+});
 </script>
 
 </body>
