@@ -115,7 +115,7 @@ body{
   font-size:16px;
 }
 
-/* ================= SECTIONS (GAP REDUCED) ================= */
+/* ================= SECTIONS ================= */
 section{
   padding:28px 18px;
 }
@@ -214,9 +214,12 @@ footer{
   color:#777;
 }
 
-/* MOBILE */
-@media(max-width:768px){
+/* ================= MOBILE OVERLAP FIX (ONLY ADDITION) ================= */
+@media (max-width:600px){
+  .hero{padding-top:80px;}
+  .hero-text{bottom:8%;}
   .hero-text h1{font-size:22px;}
+  .hero-text p{font-size:13px;}
 }
 </style>
 </head>
