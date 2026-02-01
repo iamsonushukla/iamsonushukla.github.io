@@ -17,108 +17,90 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== TOP STRIP ===== */
+/* ================= TOP STRIP ================= */
 .topbar{
-  position:fixed;
-  top:0; left:0;
-  width:100%;
-  padding:15px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  z-index:1000;
-  background:linear-gradient(to bottom, rgba(0,0,0,.6), transparent);
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:10;
 }
 
-.left-top{
+/* STACK (☰ + icons) */
+.top-stack{
   display:flex;
-  align-items:center;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* HAMBURGER */
+.menu-btn{
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* MINI ICONS */
+.mini-icons{
+  display:flex;
+  flex-direction:column;
   gap:12px;
 }
-
-.menu-btn{
-  font-size:22px;
-  cursor:pointer;
-}
-
-.profile{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:2px solid #444;
-  object-fit:cover;
-  cursor:pointer;
-}
-
-.top-social a{
+.mini-icons a{
   color:#fff;
-  margin-left:10px;
-  font-size:16px;
+  font-size:18px;
   text-decoration:none;
 }
+.mini-icons a:hover{opacity:0.7;}
 
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 .hero{
+  position:relative;
   width:100%;
-  aspect-ratio:16/9;
+  height:80vh;
   background:
-    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.8)),
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
     url("hero.jpg") center/cover no-repeat;
-  display:flex;
-  align-items:flex-end;
-  padding:80px 20px;
 }
 
-.hero-content h1{
+.hero-text{
+  position:absolute;
+  left:20px;
+  bottom:20%;
+}
+.hero-text h1{
   margin:0;
   font-size:30px;
 }
-.tagline{
-  color:#bbb;
+.hero-text p{
+  margin-top:6px;
   font-size:14px;
+  color:#bbb;
 }
 
-/* ===== SLIDE MENU ===== */
-.sidemenu{
-  position:fixed;
-  top:0; left:-260px;
-  width:260px;
-  height:100%;
-  background:#111;
-  padding:80px 20px;
-  transition:.3s;
-  z-index:1200;
-}
-.sidemenu.active{left:0;}
-.sidemenu a{
-  display:block;
-  color:#fff;
-  text-decoration:none;
-  margin:15px 0;
-  font-size:16px;
-}
-
-/* ===== SECTIONS ===== */
+/* ================= SECTIONS ================= */
 section{
-  padding:50px 20px;
+  padding:60px 18px;
 }
 h2{
+  font-size:18px;
   border-bottom:1px solid #333;
   padding-bottom:6px;
 }
 
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:12px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:14px;
 }
 .grid img{
   width:100%;
   border-radius:8px;
   cursor:pointer;
+  transition:.3s;
 }
+.grid img:hover{transform:scale(1.05);}
 
-/* ===== LIGHTBOX ===== */
+/* ================= LIGHTBOX ================= */
 .lightbox{
   position:fixed;
   inset:0;
@@ -126,7 +108,7 @@ h2{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2000;
+  z-index:999;
 }
 .lightbox.active{display:flex;}
 .lightbox img{
@@ -137,11 +119,59 @@ h2{
   position:absolute;
   top:20px;
   right:25px;
-  font-size:30px;
+  font-size:28px;
   cursor:pointer;
 }
 
-/* ===== ABOUT ===== */
+/* ================= PAYMENT POPUP ================= */
+.payment-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+.payment-popup.active{display:flex;}
+
+.payment-box{
+  background:#111;
+  padding:25px;
+  border-radius:10px;
+  max-width:300px;
+  width:90%;
+  text-align:center;
+}
+
+.payment-box h3{
+  margin-top:0;
+  font-size:18px;
+}
+
+.payment-box img{
+  width:180px;
+  border-radius:8px;
+  margin:15px 0;
+}
+
+.payment-box a{
+  display:block;
+  margin:10px 0;
+  padding:10px;
+  background:#1e1e1e;
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+.payment-box p{
+  font-size:12px;
+  color:#aaa;
+  margin-top:12px;
+}
+
+/* ================= ABOUT ================= */
 #about{text-align:center;}
 #about img{
   width:120px;
@@ -151,7 +181,7 @@ h2{
   object-fit:cover;
 }
 
-/* ===== CONTACT ===== */
+/* ================= CONTACT ================= */
 .contact{text-align:center;}
 .contact a{
   display:inline-block;
@@ -165,92 +195,94 @@ h2{
   color:#aaa;
 }
 
-/* ===== FOOTER ===== */
+/* ================= FOOTER ================= */
 footer{
   text-align:center;
   padding:25px;
+  font-size:13px;
   color:#777;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero{aspect-ratio:4/5;}
+  .hero{height:60vh;}
+  .hero-text h1{font-size:22px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- SIDE MENU -->
-<div class="sidemenu" id="menu">
-  <a href="#" onclick="goHome()">Home</a>
-  <a href="#" onclick="openCategory('portrait')">Portrait</a>
-  <a href="#" onclick="openCategory('street')">Street</a>
-  <a href="#" onclick="openCategory('wildlife')">Wildlife</a>
-  <a href="#" onclick="openCategory('nature')">Nature</a>
-</div>
-
-<!-- TOP BAR -->
+<!-- TOP LEFT STACK -->
 <div class="topbar">
-  <div class="left-top">
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <img src="profile.jpg" class="profile" onclick="goHome()">
-  </div>
-  <div class="top-social">
-    <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i></a>
-    <a href="https://x.com/iamsonushukla"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://youtube.com/@iamsonushukla"><i class="fab fa-youtube"></i></a>
-    <a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i></a>
-    <a href="mailto:contact@sonushukla.in"><i class="fa-solid fa-envelope"></i></a>
+  <div class="top-stack">
+
+    <!-- HAMBURGER -->
+    <div class="menu-btn">☰</div>
+
+    <!-- MINI ICONS -->
+    <div class="mini-icons">
+      <!-- MAIL -->
+      <a href="mailto:contact@sonushukla.in">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+
+      <!-- PAYMENT -->
+      <a href="javascript:void(0)" onclick="openPayment()">
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+      </a>
+
+      <!-- INSTAGRAM -->
+      <a href="https://instagram.com/iamsonushukla" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
   </div>
 </div>
 
 <!-- HERO -->
-<div class="hero" id="hero">
-  <div class="hero-content">
+<header class="hero">
+  <div class="hero-text">
     <h1>Sonu Shukla</h1>
-    <div class="tagline">Photographer • Editor • Graphic Designer</div>
+    <p>Photographer • Editor • Graphic Designer</p>
   </div>
-</div>
+</header>
 
-<!-- HOME GALLERIES -->
-<div id="content">
-
+<!-- GALLERIES -->
 <section>
 <h2>Portrait</h2>
 <div class="grid">
-<img src="portrait1.jpg" onclick="openLightbox(this)">
-<img src="portrait2.jpg" onclick="openLightbox(this)">
+  <img src="portrait1.jpg" onclick="openLightbox(this)">
+  <img src="portrait2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section>
 <h2>Street</h2>
 <div class="grid">
-<img src="street1.jpg" onclick="openLightbox(this)">
-<img src="street2.jpg" onclick="openLightbox(this)">
+  <img src="street1.jpg" onclick="openLightbox(this)">
+  <img src="street2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section>
 <h2>Wildlife</h2>
 <div class="grid">
-<img src="wildlife1.jpg" onclick="openLightbox(this)">
-<img src="wildlife2.jpg" onclick="openLightbox(this)">
+  <img src="wildlife1.jpg" onclick="openLightbox(this)">
+  <img src="wildlife2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section>
 <h2>Nature</h2>
 <div class="grid">
-<img src="nature1.jpg" onclick="openLightbox(this)">
-<img src="nature2.jpg" onclick="openLightbox(this)">
+  <img src="nature1.jpg" onclick="openLightbox(this)">
+  <img src="nature2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
-</div>
-
-<!-- ABOUT (LAST) -->
+<!-- ABOUT -->
 <section id="about">
 <h2>About Me</h2>
 <img src="about.jpg">
@@ -262,28 +294,47 @@ I don’t just capture photographs — I preserve moments, emotions, and stories
 <!-- CONTACT -->
 <section class="contact">
 <h2>Contact</h2>
-<a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i><span>@iamsonushukla</span></a>
-<a href="https://facebook.com/iamsonushukla"><i class="fab fa-facebook"></i><span>Facebook</span></a>
+<a href="mailto:contact@sonushukla.in">
+  <i class="fa-solid fa-envelope"></i>
+  <span>contact@sonushukla.in</span>
+</a>
 </section>
 
-<footer>© 2026 Sonu Shukla • sonushukla.in</footer>
+<footer>
+© 2026 Sonu Shukla • sonushukla.in
+</footer>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
-<span onclick="closeLightbox()">×</span>
-<img id="lbimg">
+  <span onclick="closeLightbox()">×</span>
+  <img id="lightboxImg">
+</div>
+
+<!-- PAYMENT POPUP -->
+<div class="payment-popup" id="paymentPopup">
+  <div class="payment-box">
+    <h3>Make a Payment</h3>
+
+    <img src="upi-qr.png" alt="UPI QR">
+
+    <p><strong>UPI ID:</strong> iamsonushukla@upi</p>
+
+    <a href="upi://pay?pa=iamsonushukla@upi&pn=Mahesh%20Prasad%20Shukla&cu=INR">
+      Pay via UPI App
+    </a>
+
+    <p>
+      Please verify banking name <br>
+      <strong>Mahesh Prasad Shukla</strong> before making payment.
+    </p>
+  </div>
 </div>
 
 <script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("active");
-}
-
 function openLightbox(img){
-  document.getElementById("lbimg").src = img.src;
+  document.getElementById("lightboxImg").src = img.src;
   document.getElementById("lightbox").classList.add("active");
 }
-
 function closeLightbox(){
   document.getElementById("lightbox").classList.remove("active");
 }
@@ -292,17 +343,22 @@ document.getElementById("lightbox").onclick = e=>{
   if(e.target.id==="lightbox") closeLightbox();
 }
 
+function openPayment(){
+  document.getElementById("paymentPopup").classList.add("active");
+}
+
+document.getElementById("paymentPopup").onclick = e=>{
+  if(e.target.id==="paymentPopup"){
+    document.getElementById("paymentPopup").classList.remove("active");
+  }
+}
+
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape") closeLightbox();
+  if(e.key==="Escape"){
+    closeLightbox();
+    document.getElementById("paymentPopup").classList.remove("active");
+  }
 });
-
-function goHome(){
-  location.reload();
-}
-
-function openCategory(cat){
-  alert("Next step: category-wise full gallery (ready to extend)");
-}
 </script>
 
 </body>
