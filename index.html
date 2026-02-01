@@ -26,20 +26,22 @@ body{
   background:url("hero.jpg") center center / cover no-repeat;
 }
 
-/* HERO TEXT */
-.hero-text{
-  position:absolute;
-  left:20px;
-  bottom:20%;
-}
-.hero-text h1{
-  margin:0;
-  font-size:32px;
-}
-.hero-text p{
-  margin-top:6px;
-  font-size:14px;
-  color:#ddd;
+.hero{
+  position:relative;
+  width:100%;
+
+  /* ❌ height:85vh  <-- REMOVE THIS */
+  aspect-ratio: 16 / 9;   /* ✅ THIS IS THE KEY */
+
+  background-image:
+    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.8)),
+    url("hero.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  overflow:hidden;
 }
 
 /* ================= TOP LEFT STACK ================= */
