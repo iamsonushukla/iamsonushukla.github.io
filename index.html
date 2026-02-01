@@ -5,117 +5,118 @@
 <title>Sonu Shukla | Photography Portfolio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+*{box-sizing:border-box}
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
   background:#0e0e0e;
   color:#fff;
-  overflow-x:hidden;
 }
 
-/* ================= HERO (LOCKED STYLE) ================= */
+/* ================= HERO (LOCKED – NO CROP EVER) ================= */
 .hero{
   position:relative;
   width:100%;
-  height:85vh;
+  min-height:100vh;
   background:
-    linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.8)),
-    url("hero.jpg") center center / cover no-repeat;
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
+    url("hero.jpg") center top / contain no-repeat;
+  background-color:#000;
 }
 
-/* HERO TEXT */
-.hero-text{
-  position:absolute;
-  left:20px;
-  bottom:22%;
-  z-index:5;
-}
-.hero-text h1{
-  margin:0;
-  font-size:30px;
-}
-.hero-text p{
-  margin-top:6px;
-  font-size:14px;
-  color:#bbb;
-}
-
-/* ================= TOP LEFT STACK ================= */
+/* ================= TOP BAR ================= */
 .topbar{
   position:absolute;
   top:20px;
   left:20px;
-  z-index:50;
-}
-.stack{
   display:flex;
-  flex-direction:column;
+  align-items:center;
   gap:14px;
+  z-index:10;
 }
 
-/* HAMBURGER */
-.menu-btn{
-  font-size:24px;
+.profile{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #444;
   cursor:pointer;
 }
 
-/* MINI ICONS */
-.mini-icons{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.mini-icons a{
+.social-icons a{
   color:#fff;
+  margin-right:10px;
   font-size:18px;
   text-decoration:none;
 }
-.mini-icons a:hover{opacity:.7}
 
-/* ================= MENU OVERLAY ================= */
+/* ================= HAMBURGER ================= */
+.hamburger{
+  position:absolute;
+  top:24px;
+  right:24px;
+  font-size:26px;
+  cursor:pointer;
+  z-index:20;
+}
+
+/* ================= SLIDE MENU ================= */
 .menu-overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,.6);
   display:none;
-  z-index:60;
+  z-index:30;
 }
-.menu-overlay.active{display:block;}
-
-/* ================= SLIDE MENU ================= */
 .menu{
   position:fixed;
-  top:0;
-  left:-260px;
+  top:0; left:-260px;
   width:260px;
   height:100%;
   background:#111;
-  padding:80px 20px;
+  padding:30px 20px;
   transition:.3s;
-  z-index:70;
 }
-.menu.active{left:0;}
 .menu a{
   display:block;
   color:#fff;
   text-decoration:none;
-  margin:15px 0;
+  padding:12px 0;
   font-size:16px;
+}
+.menu.active{left:0}
+.menu-overlay.active{display:block}
+
+/* ================= HERO TEXT ================= */
+.hero-content{
+  position:absolute;
+  left:20px;
+  bottom:80px;
+}
+.hero-content h1{
+  margin:0;
+  font-size:32px;
+}
+.tagline{
+  margin-top:6px;
+  font-size:14px;
+  color:#ccc;
 }
 
 /* ================= SECTIONS ================= */
-section{padding:60px 18px;}
+section{
+  padding:40px 18px;
+}
 h2{
-  font-size:18px;
   border-bottom:1px solid #333;
   padding-bottom:6px;
 }
+
+/* ================= GRID ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -135,9 +136,9 @@ h2{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2000;
+  z-index:100;
 }
-.lightbox.active{display:flex;}
+.lightbox.active{display:flex}
 .lightbox img{
   max-width:90%;
   max-height:90%;
@@ -145,118 +146,73 @@ h2{
 .lightbox span{
   position:absolute;
   top:20px;
-  right:25px;
-  font-size:28px;
+  right:30px;
+  font-size:30px;
   cursor:pointer;
 }
 
-/* ================= PAYMENT ================= */
-.payment{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.85);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2100;
-}
-.payment.active{display:flex;}
-.paybox{
-  background:#111;
-  padding:25px;
-  border-radius:10px;
-  max-width:320px;
-  width:90%;
-  text-align:center;
-}
-.paybox img{
-  width:180px;
-  border-radius:8px;
-  margin:15px 0;
-}
-.paybox a{
-  display:block;
-  margin:10px 0;
-  padding:10px;
-  background:#1e1e1e;
+/* ================= CONTACT ================= */
+.contact{text-align:center}
+.contact a{
+  display:inline-block;
+  margin:12px;
   color:#fff;
   text-decoration:none;
-  border-radius:6px;
 }
-.paybox p{
+.contact span{
+  display:block;
   font-size:12px;
   color:#aaa;
-}
-
-/* ================= ABOUT ================= */
-#about{text-align:center;}
-#about img{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  border:2px solid #444;
-  object-fit:cover;
 }
 
 /* ================= FOOTER ================= */
 footer{
   text-align:center;
   padding:25px;
-  font-size:13px;
   color:#777;
+  font-size:13px;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media(max-width:768px){
-  .hero{height:65vh;}
-  .hero-text h1{font-size:22px;}
+  .hero{min-height:100vh}
+  .hero-content h1{font-size:26px}
 }
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<!-- MENU OVERLAY -->
-<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
-
-<!-- SLIDE MENU -->
-<div class="menu" id="menu">
-  <a href="#top" onclick="closeMenu()">Home</a>
-  <a href="#portrait" onclick="closeMenu()">Portrait</a>
-  <a href="#street" onclick="closeMenu()">Street</a>
-  <a href="#wildlife" onclick="closeMenu()">Wildlife</a>
-  <a href="#nature" onclick="closeMenu()">Nature</a>
-</div>
-
-<!-- HERO -->
-<header class="hero" id="top">
+<header class="hero">
 
   <div class="topbar">
-    <div class="stack">
-      <div class="menu-btn" onclick="openMenu()">☰</div>
-
-      <div class="mini-icons">
-        <a href="mailto:contact@sonushukla.in">
-          <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="javascript:void(0)" onclick="openPayment()">
-          <i class="fa-solid fa-indian-rupee-sign"></i>
-        </a>
-        <a href="https://instagram.com/iamsonushukla" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
+    <img src="profile.jpg" class="profile" onclick="goHome()">
+    <div class="social-icons">
+      <a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:contact@sonushukla.in"><i class="fa-solid fa-envelope"></i></a>
     </div>
   </div>
 
-  <div class="hero-text">
+  <div class="hamburger" onclick="openMenu()">☰</div>
+
+  <div class="hero-content">
     <h1>Sonu Shukla</h1>
-    <p>Photographer • Editor • Graphic Designer</p>
+    <div class="tagline">Photographer • Editor • Graphic Designer</div>
   </div>
 
 </header>
 
-<!-- GALLERIES -->
+<!-- MENU -->
+<div class="menu-overlay" onclick="closeMenu()">
+  <div class="menu" onclick="event.stopPropagation()">
+    <a href="#top" onclick="closeMenu()">Home</a>
+    <a href="#portrait" onclick="closeMenu()">Portrait</a>
+    <a href="#street" onclick="closeMenu()">Street</a>
+    <a href="#wildlife" onclick="closeMenu()">Wildlife</a>
+    <a href="#nature" onclick="closeMenu()">Nature</a>
+  </div>
+</div>
+
 <section id="portrait">
 <h2>Portrait</h2>
 <div class="grid">
@@ -289,13 +245,18 @@ footer{
 </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<section id="about" style="text-align:center;">
 <h2>About Me</h2>
-<img src="about.jpg">
+<img src="about.jpg" style="width:120px;height:120px;border-radius:50%;border:2px solid #444;">
 <p style="max-width:700px;margin:auto;line-height:1.8;color:#ccc;">
-I don’t just capture photographs — I preserve moments, emotions, and stories that deserve to live forever.
+Crafting stories through light, moments, and emotion — where every frame speaks without words.
 </p>
+</section>
+
+<section class="contact">
+<h2>Contact</h2>
+<a href="mailto:contact@sonushukla.in"><i class="fa-solid fa-envelope"></i><span>contact@sonushukla.in</span></a>
+<a href="https://instagram.com/iamsonushukla"><i class="fab fa-instagram"></i><span>@iamsonushukla</span></a>
 </section>
 
 <footer>
@@ -303,64 +264,33 @@ I don’t just capture photographs — I preserve moments, emotions, and stories
 </footer>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <span onclick="closeLightbox()">×</span>
-  <img id="lbimg">
-</div>
-
-<!-- PAYMENT -->
-<div class="payment" id="payment">
-  <div class="paybox">
-    <h3>Make a Payment</h3>
-    <img src="upi-qr.png" alt="UPI QR">
-    <p><strong>UPI ID:</strong> iamsonushukla@upi</p>
-    <a href="upi://pay?pa=iamsonushukla@upi&pn=Mahesh%20Prasad%20Shukla&cu=INR">
-      Pay via UPI App
-    </a>
-    <p>
-      Please Verify Banking Name<br>
-      <strong>Mahesh Prasad Shukla</strong> Before Payment.
-    </p>
-  </div>
+  <img id="lightboxImg">
 </div>
 
 <script>
 function openMenu(){
-  document.getElementById("menu").classList.add("active");
-  document.getElementById("menuOverlay").classList.add("active");
+  document.querySelector('.menu').classList.add('active');
+  document.querySelector('.menu-overlay').classList.add('active');
 }
 function closeMenu(){
-  document.getElementById("menu").classList.remove("active");
-  document.getElementById("menuOverlay").classList.remove("active");
+  document.querySelector('.menu').classList.remove('active');
+  document.querySelector('.menu-overlay').classList.remove('active');
 }
-
 function openLightbox(img){
-  document.getElementById("lbimg").src = img.src;
-  document.getElementById("lightbox").classList.add("active");
+  document.getElementById('lightboxImg').src = img.src;
+  document.getElementById('lightbox').classList.add('active');
 }
 function closeLightbox(){
-  document.getElementById("lightbox").classList.remove("active");
+  document.getElementById('lightbox').classList.remove('active');
 }
-document.getElementById("lightbox").onclick = e=>{
-  if(e.target.id==="lightbox") closeLightbox();
-}
-
-function openPayment(){
-  document.getElementById("payment").classList.add("active");
-}
-document.getElementById("payment").onclick = e=>{
-  if(e.target.id==="payment"){
-    document.getElementById("payment").classList.remove("active");
-  }
-}
-
-document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){
-    closeMenu();
-    closeLightbox();
-    document.getElementById("payment").classList.remove("active");
-  }
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeLightbox();
 });
+function goHome(){
+  window.location.href="#top";
+}
 </script>
 
 </body>
