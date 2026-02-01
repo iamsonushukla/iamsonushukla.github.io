@@ -6,8 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet"
- href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
- loading="lazy">
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{box-sizing:border-box;}
@@ -19,53 +18,25 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HERO ================= */
+/* ================= HERO (LOCKED) ================= */
 .hero{
   position:relative;
   width:100%;
-}
-.hero img{
-  width:100%;
   height:80vh;
-  object-fit:cover;
-  display:block;
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
+    url("hero.jpg") center center / cover no-repeat;
 }
+
+/* overlay visual only */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.75));
+  pointer-events:none;
 }
 
-/* ================= TOP LEFT STACK ================= */
-.topbar{
-  position:absolute;
-  top:20px;
-  left:20px;
-  z-index:10;
-}
-.stack{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-.menu-btn{
-  font-size:24px;
-  cursor:pointer;
-}
-.mini-icons{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
-.mini-icons a{
-  color:#fff;
-  font-size:18px;
-  text-decoration:none;
-}
-.mini-icons a:hover{opacity:.7}
-
-/* ================= HERO TEXT ================= */
+/* HERO TEXT */
 .hero-text{
   position:absolute;
   left:20px;
@@ -82,6 +53,39 @@ body{
   color:#bbb;
 }
 
+/* ================= TOP LEFT STACK ================= */
+.topbar{
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:20;
+}
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* HAMBURGER */
+.menu-btn{
+  font-size:24px;
+  cursor:pointer;
+  z-index:30;
+}
+
+/* MINI ICONS */
+.mini-icons{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.mini-icons a{
+  color:#fff;
+  font-size:18px;
+  text-decoration:none;
+}
+.mini-icons a:hover{opacity:.7}
+
 /* ================= SLIDE MENU ================= */
 .menu{
   position:fixed;
@@ -92,7 +96,7 @@ body{
   background:#111;
   padding:80px 20px;
   transition:.3s;
-  z-index:999;
+  z-index:50;
 }
 .menu.active{left:0;}
 .menu a{
@@ -119,9 +123,7 @@ h2{
   width:100%;
   border-radius:8px;
   cursor:pointer;
-  transition:.3s;
 }
-.grid img:hover{transform:scale(1.05);}
 
 /* ================= LIGHTBOX ================= */
 .lightbox{
@@ -131,7 +133,7 @@ h2{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2000;
+  z-index:1000;
 }
 .lightbox.active{display:flex;}
 .lightbox img{
@@ -154,7 +156,7 @@ h2{
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:2000;
+  z-index:1100;
 }
 .payment.active{display:flex;}
 .paybox{
@@ -204,7 +206,7 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero img{height:60vh;}
+  .hero{height:60vh;}
   .hero-text h1{font-size:22px;}
 }
 </style>
@@ -222,8 +224,8 @@ footer{
 
 <!-- HERO -->
 <header class="hero">
-  <img src="hero.jpg" alt="Hero Image">
 
+  <!-- TOP LEFT -->
   <div class="topbar">
     <div class="stack">
       <div class="menu-btn" onclick="toggleMenu()">☰</div>
@@ -242,42 +244,44 @@ footer{
     </div>
   </div>
 
+  <!-- HERO TEXT -->
   <div class="hero-text">
     <h1>Sonu Shukla</h1>
     <p>Photographer • Editor • Graphic Designer</p>
   </div>
+
 </header>
 
 <!-- GALLERIES -->
 <section id="portrait">
 <h2>Portrait</h2>
 <div class="grid">
-  <img src="portrait1.jpg" loading="lazy" onclick="openLightbox(this)">
-  <img src="portrait2.jpg" loading="lazy" onclick="openLightbox(this)">
+  <img src="portrait1.jpg" onclick="openLightbox(this)">
+  <img src="portrait2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section id="street">
 <h2>Street</h2>
 <div class="grid">
-  <img src="street1.jpg" loading="lazy" onclick="openLightbox(this)">
-  <img src="street2.jpg" loading="lazy" onclick="openLightbox(this)">
+  <img src="street1.jpg" onclick="openLightbox(this)">
+  <img src="street2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section id="wildlife">
 <h2>Wildlife</h2>
 <div class="grid">
-  <img src="wildlife1.jpg" loading="lazy" onclick="openLightbox(this)">
-  <img src="wildlife2.jpg" loading="lazy" onclick="openLightbox(this)">
+  <img src="wildlife1.jpg" onclick="openLightbox(this)">
+  <img src="wildlife2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
 <section id="nature">
 <h2>Nature</h2>
 <div class="grid">
-  <img src="nature1.jpg" loading="lazy" onclick="openLightbox(this)">
-  <img src="nature2.jpg" loading="lazy" onclick="openLightbox(this)">
+  <img src="nature1.jpg" onclick="openLightbox(this)">
+  <img src="nature2.jpg" onclick="openLightbox(this)">
 </div>
 </section>
 
@@ -290,7 +294,9 @@ I don’t just capture photographs — I preserve moments, emotions, and stories
 </p>
 </section>
 
-<footer>© 2026 Sonu Shukla • sonushukla.in</footer>
+<footer>
+© 2026 Sonu Shukla • sonushukla.in
+</footer>
 
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
