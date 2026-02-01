@@ -18,20 +18,12 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HERO (FINAL STABLE FIX) ================= */
+/* ================= HERO (SIMPLE & STABLE) ================= */
 .hero{
   position:relative;
   width:100%;
-  height:100svh;          /* 🔥 stable viewport */
-  min-height:600px;       /* safety */
-  background:
-    linear-gradient(to bottom,
-      rgba(0,0,0,.2),
-      rgba(0,0,0,.45),
-      rgba(0,0,0,.7)
-    ),
-    url("hero.jpg") center top / cover no-repeat;
-  background-attachment:scroll;
+  height:75vh;                 /* 🔥 SIMPLE FIXED HEIGHT */
+  background:url("hero.jpg") center center / cover no-repeat;
 }
 
 /* HERO TEXT */
@@ -47,7 +39,7 @@ body{
 .hero-text p{
   margin-top:6px;
   font-size:14px;
-  color:#ccc;
+  color:#ddd;
 }
 
 /* ================= TOP LEFT STACK ================= */
@@ -112,8 +104,6 @@ body{
 section{
   padding:30px 18px;
 }
-section:first-of-type{padding-top:20px}
-
 h2{
   font-size:18px;
   margin-bottom:14px;
@@ -214,7 +204,7 @@ footer{
 
 /* ================= MOBILE ================= */
 @media(max-width:768px){
-  .hero{min-height:70svh}
+  .hero{height:60vh}
   .hero-text h1{font-size:22px}
 }
 </style>
