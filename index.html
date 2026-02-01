@@ -24,9 +24,16 @@ body{
   position:relative;
   width:100%;
   height:85vh;
-  background:
+
+  background-image:
     linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.8)),
-    url("hero.jpg") center center / cover no-repeat;
+    url("hero.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;   /* 🔥 THIS IS THE KEY */
+
+  overflow: hidden;
 }
 
 /* HERO TEXT */
